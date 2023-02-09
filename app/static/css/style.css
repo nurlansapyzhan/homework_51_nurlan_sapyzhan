@@ -1,0 +1,36 @@
+* {
+    font-size: 40px;
+    background-color: darkgray;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+}
+
+.text {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cat_name_input {
+  padding: 5px;
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.confirm_button {
+  padding: 5px 20px;
+  font-size: 28px;
+  margin-left: 100px;
+}

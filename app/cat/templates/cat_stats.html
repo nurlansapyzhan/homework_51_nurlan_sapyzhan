@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/cat_stats.css' %}">
+    <title>Информация</title>
+</head>
+<body>
+<div class="container">
+    <div class="pic_block">
+        {% if happiness >= 60 %}
+        <img src="{% static 'images/cat_happiness_high.jpg' %}" alt="cat">
+        {% elif happiness > 30 and happiness < 60 %}
+        <img src="{% static 'images/cat_happiness_middle.jpg' %}" alt="cat">
+        {% elif happiness <= 30 %}
+        <img src="{% static 'images/cat_happiness_low.jpg' %}" alt="cat">
+        {% endif %}
+    </div>
+    <div class="stats_block">
+        <p class="stat">Кот - {{ name }}</p>
+        <p class="stat">Возраст - {{ age }}</p>
+        <p class="stat">Уроверь счаcтья - {{ happiness }}</p>
+        <p class="stat">Уровень сытости - {{ satiety }}</p>
+    </div>
+    <div class="action">
+        <form action="/cat_stats" method="post" class="select_action">
+            {% csrf_token %}
+            <select name="action">
+                <option disabled>Выберите действие</option>
+                {% if is_sleeping %}
+                    <option value="play" name="action">Поиграть с котом</option>
+                {% else %}
+                    <option value="play" name="action">Поиграть с котом</option>
+                    <option value="feed" name="action">Покормить кота</option>
+                    <option value="sleep" name="aciotn">Уложить кота спать</option>
+                {% endif %}
+            </select>
+            <button type="submit" class="action_button">Подтвердить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
